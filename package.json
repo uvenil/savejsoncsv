@@ -1,0 +1,21 @@
+{
+  "name": "savejsoncsv",
+  "version": "1.0.0",
+  "description": "Saves an object of objects as json and as csv.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "bin": {
+    "savejsoncsv": "bin/savejsoncsv.js"
+  },
+  "author": "uvenil",
+  "license": "MIT",
+  "repository": "https://github.com/uvenil/savejsoncsv.git",
+  "dependencies": {
+    "fs-extra": "^6.0.1",
+    "obj-inout": "^1.1.0",
+    "yargs": "^11.0.0"
+  }
+}
