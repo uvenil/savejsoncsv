@@ -5,6 +5,7 @@ const path = require('path');
 const objinout = require('obj-inout');
 
 const csvAusJson = (jsonObj, zuerstZ = true) => { // erstellt aus einem verschachtelten json-Objekt eine csv-Tabelle, zuerstZ -> äußere Attribute bilden die Zeile
+  const leerWert = "---"; // Leer-Wert, falls Schlüssel in diesem Objekt nicht existiert
   let obj = jsonObj;
   let z1 = "Attr2 \\ Attr1";
   if (!zuerstZ) {
