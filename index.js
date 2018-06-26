@@ -61,4 +61,4 @@ const savejsoncsv = async (namejson = [{ name, json }], savePath = resPath, zuer
     await fs.writeFile(path.join(savePath, name + '.csv'), csv); // csv-Datei speichern
   });
 };
-module.exports = savejsoncsv;
+module.exports = { savejsoncsv, csvAusJson };
