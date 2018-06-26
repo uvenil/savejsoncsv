@@ -55,7 +55,7 @@ const savejsoncsv = async (namejson = [{ name, json }], savePath = resPath, zuer
   if (!fs.existsSync(savePath)) fs.mkdirSync(path.resolve(savePath)); // Ergebnispfad erzeugen
   let csv;
   namejson.forEach(async ({ name, json, csv }) => {
-    csv = csvAusJson(json, zuerstZ);
+    csv = csvAusJson(json, zuerstZ, leerWert);
     await fs.writeJson(path.join(savePath, name + '.json'), json);
     await fs.writeFile(path.join(savePath, name + '.csv'), csv); // csv-Datei speichern
   });
