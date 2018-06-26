@@ -4,8 +4,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const objinout = require('obj-inout');
 
-const csvAusJson = (jsonObj, zuerstZ = true) => { // erstellt aus einem verschachtelten json-Objekt eine csv-Tabelle, zuerstZ -> äußere Attribute bilden die Zeile
-  const leerWert = "---"; // Leer-Wert, falls Schlüssel in diesem Objekt nicht existiert
+const csvAusJson = (jsonObj, zuerstZ = true, leerWert = "---") => { // erstellt aus einem verschachtelten json-Objekt eine csv-Tabelle, zuerstZ -> äußere Attribute bilden die Zeile
   let obj = jsonObj;
   let z1 = "Attr2 \\ Attr1";
   if (!zuerstZ) {
@@ -52,7 +51,7 @@ const csvAusJson = (jsonObj, zuerstZ = true) => { // erstellt aus einem verschac
   });
   return z.join("\r\n");
 };
-const savejsoncsv = async (namejson = [{ name, json }], savePath = resPath, zuerstZ = false) => {
+const savejsoncsv = async (namejson = [{ name, json }], savePath = resPath, zuerstZ = false, leerWert = "---") => {
   if (!fs.existsSync(savePath)) fs.mkdirSync(path.resolve(savePath)); // Ergebnispfad erzeugen
   let csv;
   namejson.forEach(async ({ name, json, csv }) => {
@@ -61,4 +60,4 @@ const savejsoncsv = async (namejson = [{ name, json }], savePath = resPath, zuer
     await fs.writeFile(path.join(savePath, name + '.csv'), csv); // csv-Datei speichern
   });
 };
-module.exports = { savejsoncsv, csvAusJson };
+module.exports = savejsoncsv;

@@ -1,6 +1,6 @@
 {
   "name": "savejsoncsv",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Saves an object of objects as json and as csv.",
   "main": "index.js",
   "scripts": {
