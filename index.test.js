@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-const { savejsoncsv } = require('./index.js');
+const savejsoncsv = require('./index.js');
 
 
 const name = "test1";
